@@ -1,0 +1,4 @@
+interface:
+  display_name: "企业级质量门禁构建器"
+  short_description: "测试流水与压测流水加三个业务模拟器的企业级门禁技能"
+  default_prompt: "Use $quality-gate-builder to 确认目的与规模并生成后端质量门禁流水线。"
