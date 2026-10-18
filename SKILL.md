@@ -33,6 +33,7 @@ description: 为企业级后端质量门禁设计并生成可执行的流水线�
 ## 第二步：按档位读取参考
 
 - [references/solution-tiers.md](references/solution-tiers.md) —— 访谈与档位矩阵（第一步必读）
+- [references/design-judgments.md](references/design-judgments.md) —— **设计判据 D-1~D-5 的唯一权威定义**（跨技能共用；各域表述与通过证据）
 - [references/pipeline-blueprint.md](references/pipeline-blueprint.md) —— 流水线阶段、门禁规则与 CI 骨架
 - [references/test-pyramid.md](references/test-pyramid.md) —— 测试分层（单元/集成/契约/E2E）与迁移测试
 - [references/load-testing.md](references/load-testing.md) —— 压测工具、流量模型、指标与阈值门禁
