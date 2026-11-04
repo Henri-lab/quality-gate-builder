@@ -34,3 +34,8 @@
 - 日期：2026-10-25｜来源：真实项目（course-platform 验收检察官 A/B/C）｜档位：Q2
 - 结论：并发/支付安全门禁必须同时断言 HTTP 结果与数据库事实——一条回调、一条事件、一次发放；伪造或错币种零副作用；事务故障零残留且可重试。任何只看 200 或代码存在的结论都应降级。
 - 为什么＋落地：A/B/C 用真 Postgres 抓出“金额正确但币种错误仍 matched”，并用 outbox 触发器验证整笔回滚与恢复。测试放在跨模块仓库级包，业务模块仍遵守依赖方向；新增用例同步登记契约索引与审计表。
+
+### L-007 状态机边测试必须再校验数据库 CHECK 与生产消费面
+- 日期：2026-11-04｜来源：真实项目（course-platform 状态机闭环）｜档位：Q1/Q2
+- 结论：只测 `Plan` 命中/非法边不够；还要证明生产代码消费 `To/Event`、outbox 不重复硬编码事件名，并校验边表状态与迁移 CHECK 双向一致。
+- 为什么＋落地：新增 `TestStateMachineEdgesMatchDatabaseChecks` 与 `TestOutboxEventTypesAreParameterized`；未建模数据库状态必须登记例外，新增状态或 SQL 字面量会直接让 CI 红。
